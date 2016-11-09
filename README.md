@@ -153,14 +153,67 @@ will print every line in the file specified that matches the pattern specified. 
 
 *Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
 
-**To be continued: more options, recursives, wildcards, redirections, pipes...**
+### Making your new scripts executable
 
-**To be incorporated and researched further (on my part):**
+So that was fun! But wouldn't it be nice if rather than having to type
 
-`#!/usr/bin/env node`
-`chmod u+x ./file.js`
+`node script.js arguments`
 
-add actual tests to this workshop with tape.
+adjusting the script's file path all the time relative to our current location we could just run `script` in our terminal anywhere in our directory tree and know it will work just like `cat`, `ls`, and `grep`?
 
-make it into a tutorial that runs on the terminal screen like codeschool.
+You can do that in node and it only takes a few simple steps!
+
+1. In each of your cat.js, ls.js, and grep.js files add this to the top line of the file:
+
+```
+#!/usr/bin/env node
+```
+
+2. Run `npm init` in the root folder of this repo and create a `package.json`.
+
+3. Adjust your `package.json` as follows:
+
+* remove the main entry: this is only used for modules that will be used through the module system (e.g. var _ = require('underscore');).
+* add preferGlobal and set it to true, which means if someone installs this module through npm and doesn’t use the --global option, they will be warned that the module is designed to be installed globally.
+* add the bin object, which maps commands to files. This means when this module is installed, npm will set up the named executables to execute their assigned javascript files. Don't name them after existing commands like ls, grep, etc, it needs to be unique.
+
+Your `package.json` should now look like this:
+
+```javascript
+{
+  "name": "node-shell-workshop",
+  "version": "1.0.0",
+  "description": "learn how to shell script with node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "your lovely selves",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "your-name-here-cat": "lesson1/cat.js",
+    "your-name-here-ls": "lesson1/ls.js",
+    "your-name-here-grep": "lesson1/grep.js"
+  }
+}
+```
+
+4. Now in the same repo you can run `npm link` to install the script on your system. This creates a symlink to your project so that you can run the project whilst working on it, with no need to keep reinstalling it over and over again.
+
+5. Now... move into a different directory and try out...
+
+`your-name-here-cat file.extension`
+`your-name-here-ls`
+`your-name-here-ls -ex extension`
+`your-name-here-grep pattern file.extension`
+
+: - )
+
+**To be continued: more options, recursives, wildcards, redirections, pipes, publishing your new found wizardry on npm...**
+
+**To be incorporated (on my part):**
+
+* add actual tests to this workshop with tape.
+
+* make it into a tutorial that runs on the terminal screen like codeschool.
 
