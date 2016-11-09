@@ -1,6 +1,6 @@
 # Node Shell Workshop
 
-## introduction
+## Introduction
 
 It's important to realise that, in giving you access to the file system and network,
 node can be used for more than just creating web servers.
@@ -14,7 +14,7 @@ terminal before? To start off today, we're going to implement our own versions o
 
 ## Lesson 1
 
-### getting started
+### Getting started
 
 Clone this repo and go into the lesson1 folder in your terminal. The relevant files for today are there.
 
@@ -62,7 +62,7 @@ process.stdout.write(process.argv[2] + process.argv[3] + process.argv[4]);
 
 It will output `node is awesome` to the terminal.
 
-### exercise 1 - cat
+### Exercise 1 - cat
 
 In unix, `cat` is a command that takes the path to a file as its argument and will output the contents of that file to the terminal. It is used like this:
 
@@ -70,7 +70,7 @@ In unix, `cat` is a command that takes the path to a file as its argument and wi
 
 Try outputting the contents of `index.html` in the public folder of this repo to the terminal to see what it looks like.
 
-#### task
+#### Task
 
 Inside `cat.js` write a program that when called like this from the terminal 
 
@@ -78,9 +78,9 @@ Inside `cat.js` write a program that when called like this from the terminal
 
 will output the contents of that latter file to the terminal like `cat`.
 
-**Hint: You will need the `process` object and the `fs` module.**
+*Hint: You will need the `process` object and the `fs` module.*
 
-### exercise 2 - ls
+### Exercise 2 - ls
 
 `ls` is a command that when called will output the names of all the files and directories in the directory it was called from to the terminal. It is called like this:
 
@@ -88,7 +88,7 @@ will output the contents of that latter file to the terminal like `cat`.
 
 Try using `ls` in one of the folders of this repo to see what it looks like.
 
-#### task
+#### Task
 
 Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files and directories in the directory you called from to the terminal.
 
@@ -102,13 +102,15 @@ Calling `node ../ls.js` from the public folder should print:
 
 Don't worry about being exact with the spacing, just print them on the same line with some spacing.
 
-** Hint: you're going to need the method `process.cwd()` to access the directory your node command was called from. (You can't say I'm cryptic!). **
+*Hint: you're going to need the method `process.cwd()` to access the directory your node command was called from. (You can't say I'm cryptic!).*
 
-### exercise 3 - options
+### Exercise 3 - options
 
 Many unix commands have what are called options. Options are arguments you can pass to the execution of the command that modify its behaviour. They are typically in the format of a dash followed by a lowercase letter.
 
 `ls -a` for example will show all the directories/files starting with a dot (like `.gitignore`) that will otherwise be hidden when you call the `ls` command.
+
+#### Task
 
 Your task is to modify your existing `ls` command in `ls.js` so that it can accept an option argument.
 
@@ -139,17 +141,19 @@ In our public directory calling `grep 'all' grep.scm` from the command-line will
 Where `all` is the pattern it is looking for and `grep.scm` the specified file to search for it in.
 Note that it prints the whole line if it finds the pattern inside it.
 
+#### Task
+
 Inside `grep.js` write a program that when executed like this
 
 `node path_to_grep.js pattern file`
 
 will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
 
-**Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.**
+*Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.*
 
-**Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.**
+*Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
 
-*To be continued: more options, recursives, wildcards, redirections, pipes...*
+**To be continued: more options, recursives, wildcards, redirections, pipes...**
 
 *To be incorporated and researched further (on my part):*
 
