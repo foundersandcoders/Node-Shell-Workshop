@@ -9,14 +9,14 @@ In this series of lessons we are going to use some of node's features to do some
 
 A shell script is a program designed to be run by the Unix shell. Typical operations performed by shell scripts include file manipulation, program execution, and printing text.
 
-You've likely come across some typical shell commands already. Have you used cat, ls, or grep in your
+You've likely come across some typical shell commands already. Have you used `cat`, `ls`, or `grep` in your
 terminal before? To start off today, we're going to implement our own versions of these commands using javascript.
 
 ## Lesson 1
 
 ### getting Started
 
-Go into the lesson1 folder in your terminal. The relevant files for today are there.
+Clone this repo and go into the lesson1 folder in your terminal. The relevant files for today are there.
 
 From your terminal if you want to execute a javascript program you've written you can use the following command:
 
