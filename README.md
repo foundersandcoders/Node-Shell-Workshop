@@ -14,7 +14,7 @@ terminal before? To start off today, we're going to implement our own versions o
 
 ## Lesson 1
 
-### getting Started
+### getting started
 
 Clone this repo and go into the lesson1 folder in your terminal. The relevant files for today are there.
 
@@ -76,7 +76,7 @@ Inside `cat.js` write a program that when called like this from the terminal
 
 will output the contents of that latter file to the terminal like `cat`.
 
-You will need the `process` object and the `fs` module.
+** Hint: You will need the `process` object and the `fs` module. **
 
 ### exercise 2 - ls
 
@@ -84,7 +84,7 @@ You will need the `process` object and the `fs` module.
 
 `ls`
 
-Try using `ls` from the root of this repo to see what it looks like.
+Try using `ls` in one of the folders of this repo to see what it looks like.
 
 Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files and directories in the directory you called from to the terminal.
 
@@ -98,25 +98,25 @@ Calling `node ../ls.js` from the public folder should print:
 
 Don't worry about being exact with the spacing, just print them on the same line with some spacing.
 
-*Hint: you're going to need the method `process.cwd()` to access the directory your node command was called from. (You can't say I'm cryptic!).*
+** Hint: you're going to need the method `process.cwd()` to access the directory your node command was called from. (You can't say I'm cryptic!). **
 
 ### exercise 3 - options
 
 Many unix commands have what are called options. Options are arguments you can pass to the execution of the command that modify its behaviour. They are typically in the format of a dash followed by a lowercase letter.
 
-`ls -a` for example will show all the directories/files starting with a dot (like `.gitignore`) that will otherwise be hidden by the `ls` command.
+`ls -a` for example will show all the directories/files starting with a dot (like `.gitignore`) that will otherwise be hidden when you call the `ls` command.
 
 Your task is to modify your existing `ls` command in `ls.js` so that it can accept an option argument.
 
-Specifically: `node ls.js -ex extension`. If `-ex` is passed as first argument your `ls` command should only print the names of the files in the current directory that have the extension specified by the second argument.
+Specifically: `node path_to_ls.js -ex extension`. If `-ex` is passed as first argument your `ls` command should only print the names of the files in the current directory that have the extension specified by the second argument.
 
 `node ls.js -ex js` when called from the root directory should print:
 
 `cat.js   grep.js   ls.js   `
 
-and from public:
+and `node ../ls.js -ex scm` from public:
 
-`solutions.js   `, etc.
+`grep.scm   `, etc.
 
 ### Exercise 4 - grep
 
@@ -135,22 +135,22 @@ In our public directory calling `grep 'all' grep.scm` from the command-line will
 Where `all` is the pattern it is looking for and `grep.scm` the specified file to search for it in.
 Note that it prints the whole line if it finds the pattern inside it.
 
-Inside `grep.js` write a program that when executed like this:
+Inside `grep.js` write a program that when executed like this
 
 `node path_to_grep.js pattern file`
 
-Will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
+will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
 
-*Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.
+** Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.
 
-Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
+** Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to. **
 
-**To be continued: more options, recursives, wildcards, redirections, pipes...
+* To be continued: more options, recursives, wildcards, redirections, pipes... *
 
-To be incorporated and researched further (on my part):
+* To be incorporated and researched further (on my part): *
 
-#!/usr/bin/env node
-chmod u+x ./file.js
+* #!/usr/bin/env node *
+* chmod u+x ./file.js *
 
-add actual tests to this workshop with tape.**
+* add actual tests to this workshop with tape. *
 
