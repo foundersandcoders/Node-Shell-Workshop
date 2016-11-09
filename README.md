@@ -92,7 +92,7 @@ Try using `ls` in one of the folders of this repo to see what it looks like.
 
 Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files and directories in the directory you called from to the terminal.
 
-Calling `node ls.js` from the lesson1 folder of this repo should print:
+Calling `node ls.js` from the lesson-1 folder of this repo should print:
 
 `cat.js   grep.js   ls.js   public   `
 
@@ -211,7 +211,7 @@ your-name-here-grep pattern file.extension
 
 : - )
 
-**To be continued: more options, recursives, wildcards, redirections, pipes, publishing your new found wizardry on npm...**
+**To be continued: more options, recursives, wildcards, redirections, pipes, publishing your new found wizardry on npm, storing your environment variables using shell commands...**
 
 **To be incorporated (on my part):**
 
