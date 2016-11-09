@@ -161,4 +161,5 @@ will print every line in the file specified that matches the pattern specified. 
 `chmod u+x ./file.js`
 
 add actual tests to this workshop with tape.
+make it into a tutorial that runs on the terminal screen like codeschool
 
