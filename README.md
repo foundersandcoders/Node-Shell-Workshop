@@ -70,13 +70,15 @@ In unix, `cat` is a command that takes the path to a file as its argument and wi
 
 Try outputting the contents of `index.html` in the public folder of this repo to the terminal to see what it looks like.
 
+#### task
+
 Inside `cat.js` write a program that when called like this from the terminal 
 
 `node path_to_cat.js path_to_file.extension` 
 
 will output the contents of that latter file to the terminal like `cat`.
 
-** Hint: You will need the `process` object and the `fs` module. **
+**Hint: You will need the `process` object and the `fs` module.**
 
 ### exercise 2 - ls
 
@@ -85,6 +87,8 @@ will output the contents of that latter file to the terminal like `cat`.
 `ls`
 
 Try using `ls` in one of the folders of this repo to see what it looks like.
+
+#### task
 
 Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files and directories in the directory you called from to the terminal.
 
@@ -108,7 +112,7 @@ Many unix commands have what are called options. Options are arguments you can p
 
 Your task is to modify your existing `ls` command in `ls.js` so that it can accept an option argument.
 
-Specifically: `node path_to_ls.js -ex extension`. If `-ex` is passed as first argument your `ls` command should only print the names of the files in the current directory that have the extension specified by the second argument.
+Specifically: `node path_to_ls.js -ex extension`. If `-ex` is passed as first argument, your `ls` command should only print the names of the files in the current directory that have the extension specified by the second argument. Your program should do its normal behaviour if no arguments are provided.
 
 `node ls.js -ex js` when called from the root directory should print:
 
@@ -141,16 +145,16 @@ Inside `grep.js` write a program that when executed like this
 
 will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
 
-** Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.
+**Hint: try doing this just with fs first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.**
 
-** Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to. **
+**Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.**
 
-* To be continued: more options, recursives, wildcards, redirections, pipes... *
+*To be continued: more options, recursives, wildcards, redirections, pipes...*
 
-* To be incorporated and researched further (on my part): *
+*To be incorporated and researched further (on my part):*
 
-* #!/usr/bin/env node *
-* chmod u+x ./file.js *
+*#!/usr/bin/env node*
+*chmod u+x ./file.js*
 
-* add actual tests to this workshop with tape. *
+*add actual tests to this workshop with tape.*
 
