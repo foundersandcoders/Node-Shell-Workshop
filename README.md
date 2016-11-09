@@ -191,9 +191,9 @@ Your `package.json` should now look like this:
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
-    "your-name-here-cat": "lesson1/cat.js",
-    "your-name-here-ls": "lesson1/ls.js",
-    "your-name-here-grep": "lesson1/grep.js"
+    "your-name-here-cat": "lesson-1/cat.js",
+    "your-name-here-ls": "lesson-1/ls.js",
+    "your-name-here-grep": "lesson-1/grep.js"
   }
 }
 ```
