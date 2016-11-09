@@ -16,7 +16,7 @@ terminal before? To start off today, we're going to implement our own versions o
 
 ### Getting started
 
-Clone this repo and go into the lesson1 folder in your terminal. The relevant files for today are there.
+Clone this repo and go into the lesson-1 folder in your terminal. The relevant files for today are there.
 
 From your terminal if you want to execute a javascript program you've written you can use the following command:
 
