@@ -70,27 +70,33 @@ In unix, `cat` is a command that takes the path to a file as its argument and wi
 
 Try outputting the contents of `index.html` in the public folder of this repo to the terminal to see what it looks like.
 
-Inside `cat.js` write a program that when called like this from the terminal `node path_to_cat.js path_to_file.extension` will output the contents of that latter file to the terminal.
+Inside `cat.js` write a program that when called like this from the terminal 
+
+`node path_to_cat.js path_to_file.extension` 
+
+will output the contents of that latter file to the terminal like `cat`.
 
 You will need the `process` object and the `fs` module.
 
 ### exercise 2 - ls
 
-`ls` is a command that when called will output the names of all the files in the directory it was called from to the terminal. It is called like this:
+`ls` is a command that when called will output the names of all the files and directories in the directory it was called from to the terminal. It is called like this:
 
 `ls`
 
 Try using `ls` from the root of this repo to see what it looks like.
 
-Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files in the directory you called from to the terminal.
+Inside `ls.js` write a program that when called like this from the terminal `node path_to_ls.js` will output the names of all the files and directories in the directory you called from to the terminal.
 
-Calling `node ls.js` from the root of this repo should print:
+Calling `node ls.js` from the lesson1 folder of this repo should print:
 
 `cat.js   grep.js   ls.js   public   `
 
 Calling `node ../ls.js` from the public folder should print:
 
 `grep.scm   index.html   solutions.js   `, etc.
+
+Don't worry about being exact with the spacing, just print them on the same line with some spacing.
 
 *Hint: you're going to need the method `process.cwd()` to access the directory your node command was called from. (You can't say I'm cryptic!).*
 
