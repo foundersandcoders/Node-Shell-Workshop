@@ -202,10 +202,12 @@ Your `package.json` should now look like this:
 
 5. Now... move into a different directory and try out...
 
-`your-name-here-cat file.extension`
-`your-name-here-ls`
-`your-name-here-ls -ex extension`
-`your-name-here-grep pattern file.extension`
+```
+your-name-here-cat file.extension
+your-name-here-ls
+your-name-here-ls -ex extension
+your-name-here-grep pattern file.extension
+```
 
 : - )
 
