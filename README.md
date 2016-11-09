@@ -155,10 +155,10 @@ will print every line in the file specified that matches the pattern specified. 
 
 **To be continued: more options, recursives, wildcards, redirections, pipes...**
 
-*To be incorporated and researched further (on my part):*
+**To be incorporated and researched further (on my part):**
 
-*#!/usr/bin/env node*
-*chmod u+x ./file.js*
+#!/usr/bin/env node
+chmod u+x ./file.js
 
-*add actual tests to this workshop with tape.*
+add actual tests to this workshop with tape.
 
