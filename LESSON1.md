@@ -1,4 +1,4 @@
-# Node Shell Workshop
+# Lesson 1
 
 ## Introduction
 
@@ -163,15 +163,15 @@ adjusting the script's file path all the time relative to our current location w
 
 You can do that in node and it only takes a few simple steps!
 
-1. In each of your cat.js, ls.js, and grep.js files add this to the top line of the file:
+1: In each of your cat.js, ls.js, and grep.js files add this to the top line of the file:
 
 ```
 #!/usr/bin/env node
 ```
 
-2. Run `npm init` in the root folder of this repo and create a `package.json`.
+2: Run `npm init` in the root folder of this repo and create a `package.json`.
 
-3. Adjust your `package.json` as follows:
+3: Adjust your `package.json` as follows:
 
 * remove the main entry: this is only used for modules that will be used through the module system (e.g. var _ = require('underscore');).
 * add preferGlobal and set it to true, which means if someone installs this module through npm and doesn’t use the --global option, they will be warned that the module is designed to be installed globally.
@@ -198,9 +198,9 @@ Your `package.json` should now look like this:
 }
 ```
 
-4. Now in the same repo you can run `npm link` to install the script on your system. This creates a symlink to your project so that you can run the project whilst working on it, with no need to keep reinstalling it over and over again.
+4: Now in the same repo you can run `npm link` to install the script on your system. This creates a symlink to your project so that you can run the project whilst working on it, with no need to keep reinstalling it over and over again.
 
-5. Now... move into a different directory and try out...
+5: Now... move into a different directory and try out...
 
 ```
 your-name-here-cat file.extension
