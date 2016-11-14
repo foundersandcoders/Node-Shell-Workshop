@@ -24,15 +24,14 @@ process.argv[2] // = 'argument1';
 process.argv[3] // = 'argument2';
 ```
 
-And some of the `process` object's other methods:
+Some of the `process` object's other methods:
 
 ```javascript
 process.stdout.write(input) // takes input and outputs it to the terminal screen;
 process.cwd() // returns the path to the directory your node command was called from;
 ```
 
-In this lesson, we are going to learn how to write to a file, how to append content
-to a file, and how to pipe commands together.
+And how to make our node scripts executable from the command-line.
 
 ### Read Streams
 
@@ -46,7 +45,7 @@ That's because it is being 'streamed', bit by bit, so that as every chunk of its
 data becomes available it is immediately put to use.
 
 A `stream` in node is simply an interface for working with 'streaming data' like this.
-Streams can be `readable` (e.g. read a file as input), `writable` (e.g. write a file
+Streams can be `readable` (e.g. reading a file as input), `writable` (e.g. writing to a file
 as output), or both.
 
 Up until now, whenever you've needed to read a file using node's `fs` module you've likely
@@ -89,13 +88,13 @@ readStream.on('end', function() {
 
 Inside `cat.js` re-write your `cat` command to use streams instead of `fs.readFile`.
 
-*Hint: If you see something like this get outputted to your terminal:
+*Hint: If you see something like this get outputted to your terminal:*
 
 ```
 <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
 ```
 
-This is called a 'buffer'. It's an encoded format that represents the file's raw
+*This is called a 'buffer'. It's an encoded format that represents the file's raw
 binary data. To convert it into a plain-english string you can use the `toString()`
 method, or provide `'utf-8'` as the second argument of `fs.createReadStream`.*
 
@@ -137,19 +136,19 @@ If `>` is given as argument followed by another file as an argument it will,
 instead of outputting the contents of `read.extension` to the terminal, write
 it to `write.extension` instead.
 
-*Hint: To write to `write.extension` you will need to create a write stream like so:
+*Hint: To write to `write.extension` you will need to create a write stream like so:*
 
 ```
 var writeStream = fs.createWriteStream(write.extension)
 ```
 
-If you want to take the output of a read stream and redirect it to become the input
+*If you want to take the output of a read stream and redirect it to become the input
 of a write stream, this is called 'piping.' Piping in node is done using the
-`pipe()` method:
+`pipe()` method:*
 
 ```
 readStream.pipe(writeStream)
-```*
+```
 
 ### Appending files
 
@@ -239,7 +238,7 @@ Do not try to merge your `cat.js` and `wc.js` into a single file, that's cheatin
 the output of `cat.js` should become the input of `wc.js` using unix's in-built `|` syntax.
 
 *Hint: In order to access the input that has been piped into your program from a separate
-file you will need to use `process.openStdin()` (it means, open standard input);
+file you will need to use `process.openStdin()` (it means, open standard input):*
 
 ```
 var stdin = process.openStdin();
