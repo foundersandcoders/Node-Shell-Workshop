@@ -33,6 +33,10 @@ process.cwd() // returns the path to the directory your node command was called 
 
 And how to make our node scripts executable from the command-line.
 
+```
+your-name-here-cat index.html
+``` etc.
+
 ### Read Streams
 
 In this lesson we are going to cover an alternative way of reading and writing to files
