@@ -259,5 +259,5 @@ stdin.on('end', () => {
 
 ### Project
 
-With what we have covered in these two lessons, we now have everything we need to build some command-line tools. Move onto
-the projects.md when ready.
+With what we have covered in these two lessons, we now have everything we need to build some command-line tools! Move onto
+the PROJECT.md when ready.
