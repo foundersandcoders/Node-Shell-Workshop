@@ -12,8 +12,6 @@ A shell script is a program designed to be run by the Unix shell. Typical operat
 You've likely come across some typical shell commands already. Have you used `cat`, `ls`, or `grep` in your
 terminal before? To start off today, we're going to implement our own versions of these commands using javascript.
 
-## Lesson 1
-
 ### Getting started
 
 Clone this repo and go into the lesson-1 folder in your terminal. The relevant files for today are there.
@@ -72,9 +70,9 @@ Try outputting the contents of `index.html` in the public folder of this repo to
 
 #### Task
 
-Inside `cat.js` write a program that when called like this from the terminal 
+Inside `cat.js` write a program that when called like this from the terminal
 
-`node path_to_cat.js path_to_file.extension` 
+`node path_to_cat.js path_to_file.extension`
 
 will output the contents of that latter file to the terminal like `cat`.
 
@@ -218,4 +216,3 @@ your-name-here-grep pattern file.extension
 * add actual tests to this workshop with tape.
 
 * make it into a tutorial that runs on the terminal screen like codeschool.
-
