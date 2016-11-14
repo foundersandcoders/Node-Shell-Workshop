@@ -255,4 +255,9 @@ stdin.on('end', () => {
   console.log(data);
 });
 //it has access to the 'data' and 'end' event listeners as it is a stream.
-```*
+```
+
+### Project
+
+With what we have covered in these two lessons, we now have everything we need to build some command-line tools. Move onto
+the projects.md when ready.
