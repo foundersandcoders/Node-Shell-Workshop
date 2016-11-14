@@ -65,7 +65,7 @@ fs.readFile(file, function(err, file) {
 ```
 
 The problem with this is that `readFile` will wait until it has read the entirety of
-the file provided before it will fire the callback that does something with it.
+the file provided before it will fire the callback that does something with it, which could take time.
 
 With streams we can act on the contents of the file as it is being read which is more
 efficient. This accomplishes the exact same thing as the above:
