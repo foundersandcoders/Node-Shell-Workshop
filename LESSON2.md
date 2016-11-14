@@ -35,7 +35,9 @@ And how to make our node scripts executable from the command-line.
 
 ```
 your-name-here-cat index.html
-``` etc.
+``` 
+
+etc.
 
 ### Read Streams
 
