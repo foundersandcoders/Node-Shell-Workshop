@@ -254,7 +254,7 @@ stdin.on('data', (chunk) => {
 stdin.on('end', () => {
   console.log(data);
 });
-//it has access to the 'data' and 'end' event listeners as it is a stream.
+//it has access to the 'data' and 'end' event listeners as it is a read stream.
 ```
 
 ### Project
