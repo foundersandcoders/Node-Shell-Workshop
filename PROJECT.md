@@ -87,12 +87,12 @@ tests failed.
 ### Task
 
 Make your own test-runner! You can make it simple, like `tap-nyan`, or as complex
-as you like (how about piping the results of multiple test files into it?). The 
+as you like (how about piping the results of multiple test files into it?). The
 primary aim is just to have fun and be creative.
 
 Clone this repo and go into the `project` folder to find an example tape test file
-you can use. I'd recommend creating a `package.json` and experimenting with other test-runners
-like `tap-nyan` or `faucet` to get ideas.
+you can use. You'll need to create a `package.json` and install tape. I'd recommend
+experimenting with other test-runners like `tap-nyan` or `faucet` to get ideas.
 
 Your test-runner should be implemented like so:
 
