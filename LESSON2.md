@@ -67,8 +67,9 @@ fs.readFile(file, function(err, file) {
 The problem with this is that `readFile` will wait until it has read the entirety of
 the file provided before it will fire the callback that does something with it, which could take time.
 
-With streams we can act on the contents of the file as it is being read which is more
-efficient. This accomplishes the exact same thing as the above:
+With streams we can act on the contents of the file as it is being read which in certain scenarios is 
+more efficient. However, you can accomplish the same effect as `fs.readFile` with read streams using 
+the following:
 
 ```javascript
 var readStream = fs.createReadStream(file);
@@ -101,8 +102,10 @@ Inside `cat.js` re-write your `cat` command to use streams instead of `fs.readFi
 ```
 
 *This is called a 'buffer'. It's an encoded format that represents the file's raw
-binary data. To convert it into a plain-english string you can use the `toString()`
-method, or provide `'utf-8'` as the second argument of `fs.createReadStream`.*
+binary data. Each part of the sequence `68`, `65`, `6c` etc, represents a single character 
+of the file being 'buffered.' `10` for example is equivalent to `/n`. To convert the buffer 
+into a queens-english string you can use the `toString()` method, or provide `'utf-8'` as the 
+second argument of `fs.createReadStream`.*
 
 ### Write Streams
 
@@ -153,7 +156,10 @@ of a write stream, this is called 'piping.' Piping in node is done using the
 `pipe()` method:*
 
 ```
-readStream.pipe(writeStream)
+var readStream = fs.createReadStream(read.extension);
+var writeStream = fs.createWriteStream(write.extension);
+
+readStream.pipe(writeStream);
 ```
 
 ### Appending files
@@ -197,8 +203,8 @@ write streams to append instead of write content.*
 
 ### Piping
 
-Let's move on from redirection to piping! Piping is an incredibly powerful feature
-of Unix shell scripting. We've already seen a little bit of its power in the last
+Let's move on from redirection to piping! Piping is an incredibly powerful feature of Unix 
+I/O (input/ output) shell scripting. We've already seen a little bit of its power in the last 
 few tasks in how it allows us to chain commands.
 
 Piping allows you to take the output of one command and make it the input of the next
@@ -208,9 +214,9 @@ using the `|` syntax:
 grep 'html' index.html | wc -l
 ```
 
-will output `4`.
+will output `4` to the terminal.
 
-Why? `grep` prints to the console all lines in `index.html` in which it finds the word html.
+Why? `grep` prints to the console all lines in `index.html` in which it finds the word `html`.
 `|` then takes the output (these four lines) and makes it the input of `wc -l`. `wc -l`is a command
 that counts how many lines are in a file. As the input given to it is four lines long, it returns
 `4` as output.
@@ -232,13 +238,14 @@ node wc.js -l file.extension
 the file to have more lines.) Try to use a `createReadStream` rather than `readFile`
 to practice.
 
-Secondly, adjust your `wc.js` so that you can pipe into it the output of a separate file:
+Secondly, adjust your `wc.js` so that you can pipe into it the output of your cat.js 
+command:
 
 ```
 node cat.js index.html | node wc.js -l
 ```
 
-should output `10` still.
+This should output `10` still.
 
 Do not try to merge your `cat.js` and `wc.js` into a single file, that's cheating,
 the output of `cat.js` should become the input of `wc.js` using unix's in-built `|` syntax.
@@ -260,10 +267,10 @@ stdin.on('data', (chunk) => {
 stdin.on('end', () => {
   console.log(data);
 });
-//it has access to the 'data' and 'end' event listeners as it is a read stream.
+//stdin has access to the 'data' and 'end' event listeners as it is a read stream.
 ```
 
 ### Project
 
 With what we have covered in these two lessons, we now have everything we need to build some command-line tools! Move onto
-the PROJECT.md when ready.
+the [PROJECT.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/PROJECT.md) when ready.
