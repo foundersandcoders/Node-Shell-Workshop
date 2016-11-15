@@ -7,7 +7,8 @@ practice and build our own command-line tools!
 
 Specifically in this lesson your task is to build a test-runner. A test-runner is
 a program that when you pipe the results of your tests into, will read the results
-of those tests and provide you with useful information about them.
+of those tests and provide you with useful information about them. We will use tape for our
+tests in this exercise.
 
 A simple example of a test-runner is `tap-nyan`. To install it, create a `package.json`
 using `npm init`, and run `npm install --save-dev tap-nyan`. If you call `tap-nyan` like so:
@@ -86,7 +87,11 @@ tests failed.
 ### Task
 
 Make your own test-runner! You can make it simple, like `tap-nyan`, or as complex
-as you like. The primary aim is just to have fun and be creative.
+as you like (how about piping the results of multiple test files into it?). The 
+primary aim is just to have fun and be creative.
+
+Clone this repo and go into the projects folder to find an example tape test file
+you can use.
 
 Your test-runner should be implemented like so:
 
@@ -94,13 +99,14 @@ Your test-runner should be implemented like so:
 node test.js | node test-runner.js
 ```
 
-or, if you make it executable (follow the instructions in lesson-1 to do this):
+or, if you make it executable (follow the instructions in [LESSON1.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/LESSON1.md) to do this):
 
 ```
 node test.js | test-runner
 ```
 
-The only program you need to write is `test-runner.js`.
+The only program you need to write is `test-runner.js`, however feel free
+to modularise the code if it becomes appropriate.
 
 ### Colours and styling
 
@@ -116,6 +122,7 @@ abstracts this for you. Go to their github repo's to find instructions on how to
 and install them.
 
 chalk: https://github.com/chalk/chalk
+
 colors: https://www.npmjs.com/package/colors
 
 ### Publishing your test-runner to npm
