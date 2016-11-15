@@ -115,7 +115,7 @@ If you want to add colours and stylings to what you output to the terminal, the
 manual way of doing it is to add escape sequences to your `console.log()` like so:
 
 ```javascript
-console.log('\x1b[36m', 'sometext'); // 'sometext's colour will be modified
+console.log('\x1b[36m]', 'sometext'); // 'sometext's colour will be modified
 ```
 
 The easier way to do it is to use a third-party module like `colors` or `chalk` which
@@ -125,3 +125,41 @@ and install them.
 chalk: https://github.com/chalk/chalk
 
 colors: https://www.npmjs.com/package/colors
+
+### Publishing to npm
+
+Now we have created our own command-line tool, we have in effect created our
+own node module we can publish to the npm registry that others can
+install and use!
+
+Bare in mind if you have made your `test-runner.js` script executable it can
+only be installed onto other's machines globally.
+
+#### Creating a user
+
+You can publish any directory to npm that has a `package.json`.
+
+To publish, you must have a user on the npm registry. If you don't have one, you
+can create one with the command `npm adduser`. If you created one on the npm site,
+use `npm login` to store the credentials on the client.
+
+You can use `npm config ls` to ensure that the credentials are stored on your client.
+Check that it has been added to the registry by going to https://npmjs.com/~.
+
+#### Publishing your package
+
+Use `npm publish` to publish the package! That's it!
+
+Note that everything in the directory will be included unless it is ignored by a local `.gitignore` or `.npmignore` file.
+
+Also make sure there isn't already a package with the same name, owned by somebody else.
+
+If you want to test this has worked go to https://npmjs.com/package/<package>. You should see the information for your new package.
+
+Now on each other's machines try out:
+
+```
+npm install -g name-of-your-package
+```
+
+: - )
