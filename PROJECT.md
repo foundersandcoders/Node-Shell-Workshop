@@ -125,8 +125,3 @@ and install them.
 chalk: https://github.com/chalk/chalk
 
 colors: https://www.npmjs.com/package/colors
-
-### Publishing your test-runner to npm
-
-Now you've created your first command-line tool you can publish it to npm. Follow the instructions here:
-https://docs.npmjs.com/getting-started/publishing-npm-packages
