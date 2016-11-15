@@ -37,7 +37,7 @@ And how to make our node scripts executable from the command-line.
 your-name-here-cat index.html
 ``` 
 
-etc.
+To proceed with this lesson please clone this repo and go into the lesson-2 folder.
 
 ### Read Streams
 
