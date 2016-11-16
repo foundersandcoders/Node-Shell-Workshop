@@ -132,7 +132,7 @@ fs.readFile = function(file, cb) {
 fs.readFile(index.html, function (err, file) {
   if (err) throw err;
   console.log(file);
-}
+});
 ```
 
 If you want to see a detailed break-down on this at any point go into my notes on the white-board session under week5 of your [notes](https://github.com/FAC9/notes) repo. It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it helps clarify any questions from yesterday.
