@@ -90,9 +90,12 @@ Make your own test-runner! You can make it simple, like `tap-nyan`, or as comple
 as you like (how about piping the results of multiple test files into it?). The
 primary aim is just to have fun and be creative.
 
+I would recommend just starting out printing two numbers to the terminal, one being how many of the
+tests passed, the other how many of the tests failed. You can build on this to print
+'pass!' if all tests pass and 'fail!' if any test failed. Then add-in your own styles, and features.
+
 Clone this repo and go into the `project` folder to find an example tape test file
-you can use. You'll need to create a `package.json` and install tape. I'd recommend
-experimenting with other test-runners like `tap-nyan` or `faucet` to get ideas.
+you can use. You'll need to create a `package.json` and install tape.
 
 Your test-runner should be implemented like so:
 
