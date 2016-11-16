@@ -72,26 +72,26 @@ a more efficient solution. The following accomplishes the same effect as `fs.rea
 
 ```javascript
 var readStream = fs.createReadStream(file);
+//set up a read stream on a target file and store it in a variable
 
 var fileContent = '';
+//create an empty string we will use to store the contents of the read file.
 
 readStream.on('data', function (chunk) {
   fileContent += chunk;
 });
+//every time a new chunk of the read file becomes available we append it to our fileContent variable
 
 readStream.on('end', function() {
   // do something with fileContent
 });
+//once the stream has finished fileContent will contain all the content of the read file.
 ```
 
-Let's break this down.
+Let's break this down a bit more.
 
-1. We set up a read stream by calling `fs.createReadStream()`, passing it the file
-we would like to read as an argument, and storing it in a variable.
-2. We create a variable with a value of an empty string that we will use to store
-the contents of the read file.
-3. `streams` have a method `stream.on('event', function () {})`. What it does is subscribes
-your function to the specified event, so that it will be executed every time the event occurs.
+`streams` have a method `stream.on('event', function () {})`. What it does is subscribes
+the specified function to the specified event, so that it will be executed every time the event occurs.
 
 You've already done something very similar in your client-side code with:
 
@@ -115,12 +115,14 @@ the contents of the new available `chunk`.
 
 Here we just append each chunk of new content to the `fileContent` variable as soon
 as it becomes available.
-4. Finally, when the stream has finished reading the file the `end` event is triggered.
+
+Finally, when the stream has finished reading the file the `end` event is triggered.
 At this point, the whole file has been read chunk by chunk, and the variable `fileContent`
 should contain all the content of the read file.
 
 Please consider the `fs.readFile` and `fs.createReadStream` examples above a moment.
-They both do the exact same thing!
+They both do the exact same thing! You might wonder why to bother using streams in that case,
+but the tasks in this lesson will show you some of their interesting use cases.
 
 #### Task
 
