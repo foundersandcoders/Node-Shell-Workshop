@@ -100,15 +100,32 @@ Here `data` is the type of event. The target file of `readStream` will be read b
 the contents of the new available `chunk`.
 
 Here we just append each chunk of new content to the `fileContent` variable as soon
-as it becomes available.
-
-Finally, when the stream has finished reading the file the `end` event is triggered.
+as it becomes available. Finally, when the stream has finished reading the file the `end` event is triggered.
 At this point, the whole file has been read chunk by chunk, and the variable `fileContent`
 should contain all the content of the read file.
 
 Please consider the `fs.readFile` and `fs.createReadStream` examples above a moment.
-They both do the exact same thing! You might wonder why to bother using streams in that case,
-but the tasks in this lesson will show you some of their interesting use cases.
+They both do the exact same thing! Under the hood `fs.readFile` would look like this:
+
+```javascript
+fs.readFile = function(file, cb) {
+
+  var readStream = fs.createReadStream(file);
+  var body = '';
+
+  readStream.on('data', function(chunk) {
+    body += chunk;
+  });
+
+  readStream.on('error', function(err) {
+    cb(err, body)
+  });
+
+  readStream.on('end', function() {
+    cb(null, body);
+  });
+}
+```
 
 #### Task
 
