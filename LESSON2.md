@@ -89,15 +89,14 @@ readStream.on('end', function() {
 Let's break this down a bit more.
 
 `streams` have a method `stream.on('event', function () {})`. What it does is subscribes
-the specified function to the specified event, so that it will be executed every time the event occurs.
+the a function to the specified event, so that it will be executed every time the event occurs.
 
 You've already done something very similar in your client-side code with:
 
 `element.addEventListener('click', function () {})`  
 
 Here `element` is the target, `click` is the type of event, and `function` is the callback.
-Every time the element is clicked on, the code in the function will be executed. 'When this happens
-, do this.'
+Every time the element is clicked on, the code in the function will be executed.
 
 Similarly, with:
 
