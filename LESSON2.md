@@ -88,17 +88,7 @@ readStream.on('end', function() {
 
 Let's break this down a bit more.
 
-`streams` have a method `stream.on('event', function () {})`. What it does is subscribes
-the a function to the specified event, so that it will be executed every time the event occurs.
-
-You've already done something very similar in your client-side code with:
-
-`element.addEventListener('click', function () {})`  
-
-Here `element` is the target, `click` is the type of event, and `function` is the callback.
-Every time the element is clicked on, the code in the function will be executed.
-
-Similarly, with:
+`streams` have a method `stream.on('event', function () {})`. What it does is subscribes a function to the specified event, so that it will be executed every time the event occurs.
 
 ```
 readStream.on('data', function (chunk) {
@@ -106,9 +96,7 @@ readStream.on('data', function (chunk) {
 });
 ```
 
-`readStream` is the target, `data` is the type of event, and the `function` is the callback.
-The target file of `readStream` will be read bit by bit. Every time a new chunk becomes available,
-the `data` event is triggered and the function is called. It's first argument is always
+Here `data` is the type of event. The target file of `readStream` will be read bit by bit. Every time a new chunk becomes available, the `data` event is triggered and the function is called. Its first argument is always
 the contents of the new available `chunk`.
 
 Here we just append each chunk of new content to the `fileContent` variable as soon
@@ -146,6 +134,37 @@ the buffer into a string you can use the `toString()` method, or provide `'utf-8
 second argument of `fs.createReadStream`.*
 
 ### Write Streams
+
+If read streams let you read files, write streams let you write content to them!
+
+Create a new file now called 'write-stream.js' and try out the following. Type it rather than copy and paste:
+
+```javascript
+var fs = require("fs");
+var data = 'Simply Easy Learning';
+
+// Create a writable stream
+var writeStream = fs.createWriteStream('output.txt');
+
+// Write the data to stream with encoding to be utf8
+writeStream.write(data,'UTF8');
+
+// Mark the end of file
+writeStream.end();
+
+// When the stream finishes log 'write completed'
+writerStream.on('finish', function() {
+    console.log("Write completed.");
+});
+```
+
+Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and there should now exist a file called output.txt with the content `Simply Easy Learning`.
+
+Did you notice write streams use `.write()` and `.end()` like the response objects of your servers? That's because the response object is a write stream and when you're responding to the client you're 'writing' content back to it! 
+
+The request object, likewise, is a read stream as when the client makes a request you're 'reading' the content sent to the server!
+
+### Redirection
 
 In Unix, it is possible to take the output of a command that would normally be printed
 to the terminal (standard output) and redirect it so that the contents of that output
