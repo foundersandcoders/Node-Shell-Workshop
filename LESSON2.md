@@ -35,14 +35,14 @@ And how to make our node scripts executable from the command-line.
 
 ```
 your-name-here-cat index.html
-``` 
+```
 
 To proceed with this lesson please clone this repo and go into the lesson-2 folder.
 
 ### Read Streams
 
 In this lesson we are going to cover an alternative way of reading and writing to files
-using one of the core features of node's architecture: `streams`.
+using one of the core features of node: `streams`.
 
 Whenever you've watched a video online, have you noticed you can start watching it
 even though the whole video hasn't finished loading?
@@ -51,8 +51,8 @@ That's because it is being 'streamed', bit by bit, so that as every chunk of its
 data becomes available it is immediately put to use.
 
 A `stream` in node is simply an interface for working with 'streaming data' like this.
-Streams can be `readable` (e.g. reading a file as input), `writable` (e.g. writing to a file
-as output), or both.
+Streams can be `readable` (e.g. reading a file), `writable` (e.g. writing content to a
+file), or both.
 
 Up until now, whenever you've needed to read a file using node's `fs` module you've likely
 done something like the following:
@@ -67,33 +67,71 @@ fs.readFile(file, function(err, file) {
 The problem with this is that `readFile` will wait until it has read the entirety of
 the file provided before it will fire the callback that does something with it, which could take time.
 
-With streams we can act on the contents of the file as it is being read which in certain scenarios is 
-more efficient. However, you can accomplish the same effect as `fs.readFile` with read streams using 
-the following:
+With streams we can act on the contents of the file as it is being read which in certain scenarios is
+a more efficient solution. The following accomplishes the same effect as `fs.readFile` with a read stream.
 
 ```javascript
 var readStream = fs.createReadStream(file);
-//1. set up a stream that will start reading a given file bit by bit.
 
 var fileContent = '';
-//2. create an empty variable to store the contents of the read file.
 
 readStream.on('data', function (chunk) {
   fileContent += chunk;
 });
-//3. set up an event listener 'data' that will fire a callback every time a new chunk of
-//the read file becomes available. The callback here appends that chunk to our variable.
 
 readStream.on('end', function() {
   // do something with fileContent
 });
-//4. set up an event listener 'end' that will fire once the stream has finished
-//reading the file. Our variable fileContent will now contain the whole of its contents.
 ```
+
+Let's break this down.
+
+1. We set up a read stream by calling `fs.createReadStream()`, passing it the file
+we would like to read as an argument, and storing it in a variable.
+2. We create a variable with a value of an empty string that we will use to store
+the contents of the read file.
+3. `streams` have a method `stream.on('event', function () {})`. What it does is subscribes
+your function to the specified event, so that it will be executed every time the event occurs.
+
+You've already done something very similar in your client-side code with:
+
+`element.addEventListener('click', function () {})`  
+
+Here `element` is the target, `click` is the type of event, and `function` is the callback.
+Every time the element is clicked on, the code in the function will be executed.
+
+Similarly, with:
+
+```
+readStream.on('data', function (chunk) {
+  fileContent += chunk;
+});
+```
+
+`readStream` is the target, `data` is the type of event, and the `function` is the callback.
+The target file of `readStream` will be read bit by bit. Every time a new chunk becomes available,
+the `data` event is triggered and the function is called. It's first argument is always
+the contents of the new available `chunk`.
+
+Here we just append each chunk of new content to the `fileContent` variable as soon
+as it becomes available.
+4. Finally, when the stream has finished reading the file the `end` event is triggered.
+At this point, the whole file has been read chunk by chunk, and the variable `fileContent`
+should contain all the content of the read file.
+
+Please consider the `fs.readFile` and `fs.createReadStream` examples above a moment.
+They both do the exact same thing!
 
 #### Task
 
-Inside `cat.js` re-write your `cat` command to use streams instead of `fs.readFile`.
+Inside `cat.js` re-write your `cat` command to use a read stream instead of `fs.readFile`.
+
+To recap, your `cat` command should be executed like this:
+
+`node cat.js file.extension`
+
+It should output the contents of `file.extension` to the terminal. You can try using
+your command on some example files in the public folder.
 
 *Hint: If you see something like this get outputted to your terminal:*
 
@@ -102,9 +140,9 @@ Inside `cat.js` re-write your `cat` command to use streams instead of `fs.readFi
 ```
 
 *This is called a 'buffer'. It's an encoded format that represents the file's raw
-binary data. Each part of the sequence `68`, `65`, `6c` etc, represents a single character 
-of the file being 'buffered.' `10` for example is equivalent to `/n`. To convert the buffer 
-into a queens-english string you can use the `toString()` method, or provide `'utf-8'` as the 
+binary data. Each part of the sequence `68`, `65`, `6c` etc, represent characters
+of the file that is being read. `10` for example is equivalent to `/n`. To convert
+the buffer into a string you can use the `toString()` method, or provide `'utf-8'` as the
 second argument of `fs.createReadStream`.*
 
 ### Write Streams
@@ -135,32 +173,36 @@ solution scripts.)*
 
 #### Task
 
-Inside `write.js` modify your `cat` command so that you can give it the following arguments
+Inside `write.js` modify your `cat` command from the first exercise so that you can
+give it the following arguments
 
 ```
 node write.js read.extension > write.extension
 ```
 
 If `>` is given as argument followed by another file as an argument it will,
-instead of outputting the contents of `read.extension` to the terminal, write
-it to `write.extension` instead.
+instead of outputting the contents of `read.extension` to the terminal, write the contents
+of it to `write.extension` instead.
 
-*Hint: To write to `write.extension` you will need to create a write stream like so:*
+*Hint: To write content to `write.extension` you will need to create a write stream like so:*
 
-```
+```javascript
 var writeStream = fs.createWriteStream(write.extension)
 ```
 
-*If you want to take the output of a read stream and redirect it to become the input
-of a write stream, this is called 'piping.' Piping in node is done using the
+*If you want to take the output of a read stream and make it become the input
+of a write stream, this is called 'piping.' Piping in node is done using `streams`
 `pipe()` method:*
 
-```
+```javascript
 var readStream = fs.createReadStream(read.extension);
 var writeStream = fs.createWriteStream(write.extension);
 
 readStream.pipe(writeStream);
 ```
+*What this code snippet means is every time a new `chunk` of `read.extension` gets read by
+`readStream` it will immediately be redirected to become the input of `writeStream`. This input
+will get written to `write.extension`.*
 
 ### Appending files
 
@@ -187,7 +229,8 @@ Can you see `example.js` now has the contents of `index.html` appended onto the 
 
 #### Task
 
-Inside `append.js` modify your cat command so that you can give it the following arguments
+Inside `append.js` modify your `cat` command from the first exercise so that you can
+give it the following arguments
 
 ```
 node append.js read.extension >> write.extension
@@ -197,15 +240,20 @@ If `>>` is provided as an argument followed by a file as another argument it wil
 instead of outputting the contents of `read.extension` to the terminal, append
 it to `write.extension` instead.
 
-*Hint: There are multiple ways of solving this. `createReadStream`, and `createWriteStream`
-can be passed a flags object as a second argument. In particular, `{ 'flags': 'a' }` allows
-write streams to append instead of write content.*
+*Hint: There are multiple ways of solving this. `fs.createReadStream`, and `fs.createWriteStream`
+can be passed a flags object as a second argument. In particular:*
+
+```javascript
+var writeStream = fs.createWriteStream(write.extension, { 'flags': 'a' })
+```
+
+*allows write streams to append instead of write content.*
 
 ### Piping
 
-Let's move on from redirection to piping! Piping is an incredibly powerful feature of Unix 
-I/O (input/ output) shell scripting. We've already seen a little bit of its power in the last 
-few tasks in how it allows us to chain commands.
+Piping is an incredibly powerful feature of Unix I/O (input/ output) shell scripting.
+We've already seen a little bit of its power in the last few tasks in how it allows
+us to chain commands.
 
 Piping allows you to take the output of one command and make it the input of the next
 using the `|` syntax:
@@ -224,25 +272,23 @@ that counts how many lines are in a file. As the input given to it is four lines
 You could continue piping on indefinitely: `command1 | command2 | command3`, etc.
 Each command's output becomes the next command's input.
 
-Such is I/O!
-
 #### Task
 
 Firstly, inside `wc.js` try implementing your own `wc -l` in the following way:
 
 ```
-node wc.js -l file.extension
+node wc.js file.extension
 ```
 
-`node wc.js -l index.html` should print to the console `10` (unless you modified
-the file to have more lines.) Try to use a `createReadStream` rather than `readFile`
-to practice.
+It should print to the console the number of lines in the file specified by the argument.
+`node wc.js index.html` should print `10` (unless you modified the file to have more lines.)
+Try to use `fs.createReadStream` rather than `fs.readFile` to practice.
 
-Secondly, adjust your `wc.js` so that you can pipe into it the output of your cat.js 
-command:
+Once you've done this, adjust your `wc.js` so that you can pipe into it the output of your `cat.js`
+command like this:
 
 ```
-node cat.js index.html | node wc.js -l
+node cat.js index.html | node wc.js
 ```
 
 This should output `10` still.
@@ -253,12 +299,10 @@ the output of `cat.js` should become the input of `wc.js` using unix's in-built 
 *Hint: In order to access the input that has been piped into your program from a separate
 file you will need to use `process.openStdin()` (it means, open standard input):*
 
-```
+```javascript
 var stdin = process.openStdin();
-//creates a readStream on the piped in data
 
 var data = '';
-//create an empty variable to store the piped in data
 
 stdin.on('data', (chunk) => {
   data += chunk;
@@ -267,8 +311,10 @@ stdin.on('data', (chunk) => {
 stdin.on('end', () => {
   console.log(data);
 });
-//stdin has access to the 'data' and 'end' event listeners as it is a read stream.
 ```
+
+*This is exactly the same as our read stream example at the top of this readme, as
+process.openStdin() is a read stream!*
 
 ### Project
 
