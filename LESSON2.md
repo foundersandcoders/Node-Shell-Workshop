@@ -153,12 +153,12 @@ writeStream.write(data,'UTF8');
 writeStream.end();
 
 // When the stream finishes log 'write completed'
-writerStream.on('finish', function() {
+writeStream.on('finish', function() {
     console.log("Write completed.");
 });
 ```
 
-Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and there should now exist a file called output.txt with the content `Simply Easy Learning`.
+Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and a new file called output.txt with the content `Simply Easy Learning` should have been created.
 
 Did you notice write streams use `.write()` and `.end()` like the response objects of your servers? That's because the response object is a write stream and when you're responding to the client you're 'writing' content back to it! 
 
