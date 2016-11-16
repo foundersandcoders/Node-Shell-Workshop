@@ -106,7 +106,7 @@ should contain all the content of the read file.
 
 ### fs.readFile under the hood
 
-Under the hood this is something akin to the definition of `fs.readFile`, they're basically doing the same thing:
+Under the hood this is something akin to the definition of `fs.readFile`, it basically does the same thing as the above read stream example!:
 
 ```javascript
 fs.readFile = function(file, encoding, cb) {
