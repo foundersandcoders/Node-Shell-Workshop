@@ -109,6 +109,7 @@ should contain all the content of the read file.
 Under the hood, this is something akin to the definition of `fs.readFile`, it basically does the same thing as the above read stream example!:
 
 ```javascript
+//function definition
 fs.readFile = function(file, cb) {
 
   var readStream = fs.createReadStream(file);
@@ -125,6 +126,12 @@ fs.readFile = function(file, cb) {
   readStream.on('end', function() {
     cb(null, fileContent);
   });
+}
+
+//function execution
+fs.readFile(index.html, function (err, file) {
+  if (err) throw err;
+  console.log(file);
 }
 ```
 
