@@ -162,7 +162,7 @@ Now try running `node write-stream.js`. It should log `Write completed.` to the 
 
 Did you notice write streams use `.write()` and `.end()` like the response objects of your servers? That's because the response object is a write stream and when you're responding to the client you're 'writing' content back to it! 
 
-The request object, likewise, is a read stream as when the client makes a request you're 'reading' the content sent to the server!
+The request object, likewise, is a read stream as when the client makes a request you're 'reading' the content that has been 'streamed' to the server!
 
 ### Redirection
 
