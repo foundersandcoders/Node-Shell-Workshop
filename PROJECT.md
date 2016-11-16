@@ -110,7 +110,7 @@ node test.js | test-runner
 ```
 
 The only program you need to write is `test-runner.js`, however feel free
-to modularise the code if it becomes appropriate.
+to modularise and write tests for the code if it becomes appropriate.
 
 ### Colours and styling
 
