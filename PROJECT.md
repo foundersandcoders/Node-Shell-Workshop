@@ -27,6 +27,12 @@ It will output something like this to the terminal:
  Pass!
 ```
 
+If you get an error message saying something like `command tap-nyan cannot be found` try running it like this instead:
+
+```
+node test.js | node_modules/.bin/tnyan
+```
+
 ### What's happening here?
 
 Something like this can be implemented using what you've already learned. The
