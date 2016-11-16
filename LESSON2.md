@@ -223,10 +223,10 @@ Inside `write.js` modify your `cat` command from the first exercise so that you 
 give it the following arguments
 
 ```
-node write.js read.extension > write.extension
+node write.js read.extension '>' write.extension
 ```
 
-If `>` is given as argument followed by another file as an argument it will,
+If `'>'` is given as argument followed by another file as an argument it will,
 instead of outputting the contents of `read.extension` to the terminal, write the contents
 of it to `write.extension` instead.
 
@@ -279,10 +279,10 @@ Inside `append.js` modify your `cat` command from the first exercise so that you
 give it the following arguments
 
 ```
-node append.js read.extension >> write.extension
+node append.js read.extension '>>' write.extension
 ```
 
-If `>>` is provided as an argument followed by a file as another argument it will,
+If `'>>'` is provided as an argument followed by a file as another argument it will,
 instead of outputting the contents of `read.extension` to the terminal, append
 it to `write.extension` instead.
 
