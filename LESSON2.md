@@ -109,16 +109,10 @@ should contain all the content of the read file.
 Under the hood this is something akin to the definition of `fs.readFile`, it basically does the same thing as the above read stream example!:
 
 ```javascript
-fs.readFile = function(file, encoding, cb) {
+fs.readFile = function(file, cb) {
 
-  var readStream;
+  var readStream = fs.createReadStream(file);
   var fileContent = '';
-
-  if (encoding === 'utf-8') {
-    readStream = fs.createReadStream(file, 'utf-8');
-  } else {
-    readStream = fs.createReadStream(file);
-  }
 
   readStream.on('data', function(chunk) {
     fileContent += chunk;
