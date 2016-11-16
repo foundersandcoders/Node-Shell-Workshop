@@ -106,16 +106,19 @@ should contain all the content of the read file.
 
 ### fs.readFile under the hood
 
-Please consider the `fs.readFile` and `fs.createReadStream` examples above a moment.
-They both do the exact same thing! 
-
-Under the hood `fs.readFile` would look like this:
+Under the hood this is something akin to the definition of `fs.readFile`, they're basically doing the same thing:
 
 ```javascript
-fs.readFile = function(file, cb) {
+fs.readFile = function(file, encoding, cb) {
 
-  var readStream = fs.createReadStream(file);
+  var readStream;
   var fileContent = '';
+
+  if (encoding === 'utf-8') {
+    readStream = fs.createReadStream(file, 'utf-8');
+  } else {
+    readStream = fs.createReadStream(file);
+  }
 
   readStream.on('data', function(chunk) {
     fileContent += chunk;
@@ -130,6 +133,8 @@ fs.readFile = function(file, cb) {
   });
 }
 ```
+
+If you want to see a detailed break-down on this before proceeding go into my notes on the white-board session under week5 of your [notes](https://github.com/FAC9/notes) repo. It's not necessary to go into that much depth to do these exercises, just in case it helps clarify any questions from yesterday.
 
 #### Task
 
