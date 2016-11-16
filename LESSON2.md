@@ -137,7 +137,7 @@ second argument of `fs.createReadStream`.*
 
 If read streams let you read files, write streams let you write content to them!
 
-Create a new file now called 'write-stream.js' and try out the following. Type it rather than copy and paste:
+Create a new file now called `write-stream.js` and try out the following. Type it rather than copy and paste:
 
 ```javascript
 var fs = require("fs");
@@ -158,11 +158,11 @@ writeStream.on('finish', function() {
 });
 ```
 
-Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and a new file called output.txt with the content `Simply Easy Learning` should have been created.
+Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and a new file called `output.txt` with the content `Simply Easy Learning` should have been created.
 
-Did you notice write streams use `.write()` and `.end()` like the response objects of your servers? That's because the response object is a write stream and when you're responding to the client you're 'writing' content back to it! 
+Did you notice write streams use `.write()` and `.end()` like the `response` object of your servers? That's because the `response` object is a write stream and when you're responding to the client you're 'writing' content to it! 
 
-The request object, likewise, is a read stream as when the client makes a request you're 'reading' the content that has been 'streamed' to the server!
+The `request` object, likewise, is a read stream as when the client makes a request you're 'reading' the content that has been 'streamed' to the server!
 
 ### Redirection
 
