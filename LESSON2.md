@@ -104,25 +104,29 @@ as it becomes available. Finally, when the stream has finished reading the file 
 At this point, the whole file has been read chunk by chunk, and the variable `fileContent`
 should contain all the content of the read file.
 
+### fs.readFile under the hood
+
 Please consider the `fs.readFile` and `fs.createReadStream` examples above a moment.
-They both do the exact same thing! Under the hood `fs.readFile` would look like this:
+They both do the exact same thing! 
+
+Under the hood `fs.readFile` would look like this:
 
 ```javascript
 fs.readFile = function(file, cb) {
 
   var readStream = fs.createReadStream(file);
-  var body = '';
+  var fileContent = '';
 
   readStream.on('data', function(chunk) {
-    body += chunk;
+    fileContent += chunk;
   });
 
   readStream.on('error', function(err) {
-    cb(err, body)
+    cb(err, fileContent)
   });
 
   readStream.on('end', function() {
-    cb(null, body);
+    cb(null, fileContent);
   });
 }
 ```
