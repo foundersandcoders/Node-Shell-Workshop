@@ -86,7 +86,7 @@ readStream.on('end', function() {
 //do something with it.
 ```
 
-Let's break this down a bit more.
+#### Breaking this down
 
 `streams` have a method `stream.on('event', function () {})`. What it does is subscribes a function to the specified event, so that it will be executed every time the event occurs.
 
@@ -104,9 +104,9 @@ as it becomes available. Finally, when the stream has finished reading the file 
 At this point, the whole file has been read chunk by chunk, and the variable `fileContent`
 should contain all the content of the read file.
 
-### fs.readFile under the hood
+#### fs.readFile under the hood
 
-Under the hood this is something akin to the definition of `fs.readFile`, it basically does the same thing as the above read stream example!:
+Under the hood, this is something akin to the definition of `fs.readFile`, it basically does the same thing as the above read stream example!:
 
 ```javascript
 fs.readFile = function(file, cb) {
@@ -128,7 +128,7 @@ fs.readFile = function(file, cb) {
 }
 ```
 
-If you want to see a detailed break-down on this before proceeding go into my notes on the white-board session under week5 of your [notes](https://github.com/FAC9/notes) repo. It's not necessary to go into that much depth to do these exercises, just in case it helps clarify any questions from yesterday.
+If you want to see a detailed break-down on this at any point go into my notes on the white-board session under week5 of your [notes](https://github.com/FAC9/notes) repo. It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it helps clarify any questions from yesterday.
 
 #### Task
 
