@@ -45,13 +45,10 @@ In this lesson we are going to cover an alternative way of reading and writing t
 using one of the core features of node: `streams`.
 
 Whenever you've watched a video online, have you noticed you can start watching it
-even though the whole video hasn't finished loading?
-
-That's because it is being 'streamed', bit by bit, so that as every chunk of its
-data becomes available it is immediately put to use.
+even though the whole video hasn't finished loading? That's because it is being 'streamed', bit by bit, so that as every chunk of its data becomes available it is immediately put to use.
 
 A `stream` in node is simply an interface for working with 'streaming data' like this.
-Streams can be `readable` (e.g. reading a file), `writable` (e.g. writing content to a
+Streams can be `readable` (e.g. reading a file), `writable` (e.g. writing new content to a
 file), or both.
 
 Up until now, whenever you've needed to read a file using node's `fs` module you've likely
@@ -68,7 +65,7 @@ The problem with this is that `readFile` will wait until it has read the entiret
 the file provided before it will fire the callback that does something with it, which could take time.
 
 With streams we can act on the contents of the file as it is being read which in certain scenarios is
-a more efficient solution. The following accomplishes the same effect as `fs.readFile` with a read stream.
+a more efficient solution. The following accomplishes the exact same effect as `fs.readFile` with a read stream, however.
 
 ```javascript
 var readStream = fs.createReadStream(file);
@@ -85,7 +82,8 @@ readStream.on('data', function (chunk) {
 readStream.on('end', function() {
   // do something with fileContent
 });
-//once the stream has finished fileContent will contain all the content of the read file.
+//once the stream has finished fileContent will contain all the content of the read file and we can
+//do something with it.
 ```
 
 Let's break this down a bit more.
@@ -98,7 +96,8 @@ You've already done something very similar in your client-side code with:
 `element.addEventListener('click', function () {})`  
 
 Here `element` is the target, `click` is the type of event, and `function` is the callback.
-Every time the element is clicked on, the code in the function will be executed.
+Every time the element is clicked on, the code in the function will be executed. 'When this happens
+, do this.'
 
 Similarly, with:
 
