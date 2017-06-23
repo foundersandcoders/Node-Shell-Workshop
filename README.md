@@ -1,3 +1,7 @@
+**Author**: [@bradreeder](https://github.com/bradreeder)  
+
+**Maintainer**: [@bradreeder](https://github.com/bradreeder)  
+
 # Node Shell Workshop
 
 A tutorial that takes you through the basics of doing shell scripting with node.js. It culminates in a project using the lessons learned to build a small command-line tool.
