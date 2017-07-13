@@ -209,10 +209,4 @@ your-name-here-grep pattern file.extension
 
 : - )
 
-**To be continued: more options, recursives, wildcards, redirections, pipes, publishing your new found wizardry on npm, storing your environment variables using shell commands...**
-
-**To be incorporated (on my part):**
-
-* add actual tests to this workshop with tape.
-
-* make it into a tutorial that runs on the terminal screen like codeschool.
+[Click here to move on to LESSON 2](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/LESSON2.md)
