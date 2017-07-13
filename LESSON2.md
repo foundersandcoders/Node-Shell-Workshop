@@ -34,10 +34,10 @@ process.cwd() // returns the path to the directory your node command was called 
 And how to make our node scripts executable from the command-line.
 
 ```
-your-name-here-cat index.html
+your-name-here-cat public/index.html
 ```
 
-To proceed with this lesson please clone this repo and go into the lesson-2 folder.
+To proceed with this lesson please clone this repo and go into the lesson-2 folder. **(N.B. If you cloned the repo in lesson 1, there is no need to clone again!)**
 
 ### Read Streams
 
@@ -187,7 +187,7 @@ writeStream.on('finish', function() {
 
 Now try running `node write-stream.js`. It should log `Write completed.` to the terminal and a new file called `output.txt` with the content `Simply Easy Learning` should have been created.
 
-Did you notice write streams use `.write()` and `.end()` like the `response` object of your servers? That's because the `response` object is a write stream and when you're responding to the client you're 'writing' content to it! 
+Did you notice write streams use `.write()` and `.end()` like the `response` object of your servers? That's because the `response` object is a write stream and when you're responding to the client you're 'writing' content to it!
 
 The `request` object, likewise, is a read stream as when the client makes a request you're 'reading' the content that has been 'streamed' to the server!
 
@@ -200,16 +200,16 @@ are written to a file instead.
 The command we use to accomplish this is `>` :
 
 ```
-cat index.html > example.js
+cat public/index.html > public/example.js
 ```
 
-`cat index.html` will read the html file and output its contents, then `>` will take
-this output and redirect it so that it is written to `example.js` instead.
+`cat public/index.html` will read the html file and output its contents, then `>` will take
+this output and redirect it so that it is written to `public/example.js` instead.
 
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js index.html > example.js
+node path_to_your_cat.js public/index.html > public/example.js
 ```
 
 Can you see `example.js` now has been overwritten to contain the contents of `index.html`?
@@ -223,17 +223,17 @@ Inside `write.js` modify your `cat` command from the first exercise so that you 
 give it the following arguments
 
 ```
-node write.js read.extension '>' write.extension
+node write.js path_to_read_file '>' path_to_write_file
 ```
 
 If `'>'` is given as argument followed by another file as an argument it will,
-instead of outputting the contents of `read.extension` to the terminal, write the contents
-of it to `write.extension` instead.
+instead of outputting the contents of `path_to_read_file` to the terminal, write the contents
+of it to `path_to_write_file` instead.
 
-*Hint: To write content to `write.extension` you will need to create a write stream like so:*
+*Hint: To write content to `path_to_write_file` you will need to create a write stream like so:*
 
 ```javascript
-var writeStream = fs.createWriteStream(write.extension)
+var writeStream = fs.createWriteStream(path_to_write_file)
 ```
 
 *If you want to take the output of a read stream and make it become the input
@@ -241,14 +241,14 @@ of a write stream, this is called 'piping.' Piping in node is done using `stream
 `pipe()` method:*
 
 ```javascript
-var readStream = fs.createReadStream(read.extension);
-var writeStream = fs.createWriteStream(write.extension);
+var readStream = fs.createReadStream(path_to_read_file);
+var writeStream = fs.createWriteStream(path_to_write_file);
 
 readStream.pipe(writeStream);
 ```
-*What this code snippet means is every time a new `chunk` of `read.extension` gets read by
+*What this code snippet means is every time a new `chunk` of `path_to_read_file` gets read by
 `readStream` it will immediately be redirected to become the input of `writeStream`. This input
-will get written to `write.extension`.*
+will get written to `path_to_write_file`.*
 
 ### Appending files
 
@@ -259,16 +259,16 @@ onto the end of it?
 In Unix you can do this using `>>` :
 
 ```
-cat index.html >> example.js
+cat public/index.html >> public/example.js
 ```
 
-`cat index.html` will read the html file and output its contents, then `>>` will take
-this output and redirect it so that it is appended to the contents of `example.js`.
+`cat public/index.html` will read the html file and output its contents, then `>>` will take
+this output and redirect it so that it is appended to the contents of `public/example.js`.
 
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js index.html >> example.js
+node path_to_your_cat.js public/index.html >> public/example.js
 ```
 
 Can you see `example.js` now has the contents of `index.html` appended onto the end?
@@ -279,18 +279,18 @@ Inside `append.js` modify your `cat` command from the first exercise so that you
 give it the following arguments
 
 ```
-node append.js read.extension '>>' write.extension
+node append.js path_to_read_file '>>' path_to_write_file
 ```
 
 If `'>>'` is provided as an argument followed by a file as another argument it will,
-instead of outputting the contents of `read.extension` to the terminal, append
-it to `write.extension` instead.
+instead of outputting the contents of `path_to_read_file` to the terminal, append
+it to `path_to_write_file` instead.
 
 *Hint: There are multiple ways of solving this. `fs.createReadStream`, and `fs.createWriteStream`
 can be passed a flags object as a second argument. In particular:*
 
 ```javascript
-var writeStream = fs.createWriteStream(write.extension, { 'flags': 'a' })
+var writeStream = fs.createWriteStream(path_to_write_file, { 'flags': 'a' })
 ```
 
 *allows write streams to append instead of write content.*
@@ -305,7 +305,7 @@ Piping allows you to take the output of one command and make it the input of the
 using the `|` syntax:
 
 ```
-grep 'html' index.html | wc -l
+grep 'html' public/index.html | wc -l
 ```
 
 will output `4` to the terminal.
@@ -361,8 +361,3 @@ stdin.on('end', () => {
 
 *This is exactly the same as our read stream example at the top of this readme, as
 process.openStdin() is a read stream!*
-
-### Project
-
-With what we have covered in these two lessons, we now have everything we need to build some command-line tools! Move onto
-the [PROJECT.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/PROJECT.md) when ready.
