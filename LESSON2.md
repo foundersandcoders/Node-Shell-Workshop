@@ -361,3 +361,10 @@ stdin.on('end', () => {
 
 *This is exactly the same as our read stream example at the top of this readme, as
 process.openStdin() is a read stream!*
+
+### Project
+
+With what we have covered in these two lessons, we now have everything we need to build some command-line tools! Move onto
+the [PROJECT.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/PROJECT.md) when ready.
+
+**_(If you're completing the course at Founders & Coders, you will cover the project during research afternoon.)_**
