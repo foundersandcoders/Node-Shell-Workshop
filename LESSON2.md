@@ -366,5 +366,3 @@ process.openStdin() is a read stream!*
 
 With what we have covered in these two lessons, we now have everything we need to build some command-line tools! Move onto
 the [PROJECT.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/PROJECT.md) when ready.
-
-**_(If you're completing the course at Founders & Coders, you will cover the project during research afternoon.)_**
