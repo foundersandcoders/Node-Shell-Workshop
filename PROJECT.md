@@ -154,6 +154,8 @@ Check that it has been added to the registry by going to https://npmjs.com/~.
 
 #### Publishing your package
 
+*Note: The following is here for educational purposes. It's advisable to not be too frivolous in publishing to npm. If you do, be sure to provide ample documentation for your project on your repository and on npm.*
+
 Use `npm publish` to publish the package! That's it!
 
 Note that everything in the directory will be included unless it is ignored by a local `.gitignore` or `.npmignore` file.
@@ -162,7 +164,7 @@ Also make sure there isn't already a package with the same name, owned by somebo
 
 If you want to test this has worked go to https://npmjs.com/package/<package>. You should see the information for your new package.
 
-Now on each other's machines try out:
+If you then want someone to install your new package onto their machine, try out:
 
 ```
 npm install -g name-of-your-package
