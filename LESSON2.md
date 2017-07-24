@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Hello again. To recap, in the last lesson we covered:
+To recap, in the last lesson we covered:
 
 Executing a javascript program from the command-line using:
 
@@ -135,7 +135,7 @@ fs.readFile(index.html, function (err, file) {
 });
 ```
 
-If you want to see a detailed break-down on this at any point go into my notes on the white-board session under week5 of your [notes](https://github.com/FAC9/notes) repo. It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it helps clarify any questions from yesterday.
+If you want to see a detailed break-down on this at any point there are notes on this example stored here [notes.](https://github.com/FAC9/notes/blob/master/week4%265-Node/fs-readFile.md) It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it provides any clarity.
 
 #### Task
 
@@ -209,7 +209,7 @@ this output and redirect it so that it is written to `public/example.js` instead
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js public/index.html > public/example.js
+node path_to_your_cat.js index.html > example.js
 ```
 
 Can you see `example.js` now has been overwritten to contain the contents of `index.html`?
@@ -268,7 +268,7 @@ this output and redirect it so that it is appended to the contents of `public/ex
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js public/index.html >> public/example.js
+node path_to_your_cat.js index.html >> example.js
 ```
 
 Can you see `example.js` now has the contents of `index.html` appended onto the end?
@@ -334,7 +334,7 @@ Once you've done this, adjust your `wc.js` so that you can pipe into it the outp
 command like this:
 
 ```
-node cat.js index.html | node wc.js
+node cat.js public/index.html | node wc.js
 ```
 
 This should output `10` still.

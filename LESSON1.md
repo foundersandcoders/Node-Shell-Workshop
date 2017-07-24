@@ -14,7 +14,7 @@ terminal before? To start off today, we're going to implement our own versions o
 
 ### Getting started
 
-Clone this repo and go into the lesson-1 folder in your terminal. The relevant files for today are there.
+Clone this repo and go into the lesson-1 folder in your terminal. The relevant files for this first part of the workshop are there.
 
 From your terminal if you want to execute a javascript program you've written you can use the following command:
 
@@ -147,9 +147,9 @@ Inside `grep.js` write a program that when executed like this
 
 will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
 
-*Hint: try doing this just with `fs` first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.*
+*Hint: there are multiple ways of solving this.
 
-*Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
+A specific core module exists that allows you to access the whole line of a file as you're reading it. Look through the list of node core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
 
 ### Making your new scripts executable
 
