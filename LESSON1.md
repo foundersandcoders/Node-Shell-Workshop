@@ -147,9 +147,9 @@ Inside `grep.js` write a program that when executed like this
 
 will print every line in the file specified that matches the pattern specified. Each line should be printed on its own line.
 
-*Hint: try doing this just with `fs` first and see what happens. You're going to need a specific core module in order to access the whole line of a file as you're reading it.*
+*Hint: a specific core module exists that allows you to access the whole line of a file as you're reading it.*
 
-*Look through the list of core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
+*Look through the list of node core modules or use Stack Overflow if you get stuck. Please don't use third party modules for this exercise. You should default to using core modules while you're learning where it's possible to.*
 
 ### Making your new scripts executable
 
