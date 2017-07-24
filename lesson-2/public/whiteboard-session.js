@@ -44,8 +44,12 @@ fs.readFile = function(file, cb) {
     body += chunk;
   });
 
+  readStream.on('error', function(err) {
+    cb(err, body)
+  });
+
   readStream.on('end', function() {
-    cb(error, body);
+    cb(null, body);
   });
 
 }
