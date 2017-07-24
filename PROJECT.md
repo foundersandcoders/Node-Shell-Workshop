@@ -164,7 +164,7 @@ Also make sure there isn't already a package with the same name, owned by somebo
 
 If you want to test this has worked go to https://npmjs.com/package/<package>. You should see the information for your new package.
 
-If you then want someone to install your new package onto their machine, try out:
+If you then want someone to install your new module onto their machine, try out:
 
 ```
 npm install -g name-of-your-package
