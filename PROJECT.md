@@ -113,7 +113,7 @@ or, if you make it executable (follow the instructions in [LESSON1.md](https://g
 node test.js | output-formatter
 ```
 
-The only program you need to write is `test-runner.js`, however feel free
+The only program you need to write is `output-formatter.js`, however feel free
 to modularise and write tests for the code if it becomes appropriate.
 
 ### Colours and styling
