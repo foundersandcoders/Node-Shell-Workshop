@@ -135,7 +135,7 @@ fs.readFile(index.html, function (err, file) {
 });
 ```
 
-If you want to see a detailed break-down on this at any point there are notes on this example stored here [notes.](https://github.com/FAC9/notes/blob/master/week4%265-Node/fs-readFile.md) It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it provides any clarity.
+If you want to see a detailed break-down on this at any point there are notes on this example stored [here.](https://github.com/FAC9/notes/blob/master/week4%265-Node/fs-readFile.md) It's not necessary to go into that much depth to do these exercises, the syntax you need is provided, just in case it provides any clarity.
 
 #### Task
 
