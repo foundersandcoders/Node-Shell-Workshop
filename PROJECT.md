@@ -5,12 +5,10 @@
 Now we have learned the basics of shell scripting with node.js we can put it to
 practice and build our own command-line tools!
 
-Specifically in this lesson your task is to build a test-runner. A test-runner is
-a program that when you pipe the results of your tests into, will read the results
-of those tests and provide you with useful information about them. We will use tape for our
-tests in this exercise.
+Specifically in this lesson your task is to build a test output formatter. A test output formatter is a program that when you pipe the results of your tests into, will read the results
+of those tests and reformat their output. We will use tape for our tests in this exercise.
 
-A simple example of a test-runner is `tap-nyan`. To install it, create a `package.json`
+A simple example of an output formatter is `tap-nyan`. To install it, create a `package.json`
 using `npm init`, and run `npm install --save-dev tap-nyan`. If you call `tap-nyan` like so:
 
 ```
@@ -92,7 +90,7 @@ tests failed.
 
 ### Task
 
-Make your own test-runner! You can make it simple, like `tap-nyan`, or as complex
+Make your own output formatter! You can make it simple, like `tap-nyan`, or as complex
 as you like (how about piping the results of multiple test files into it?). The
 primary aim is just to have fun and be creative.
 
@@ -103,16 +101,16 @@ tests passed, the other how many of the tests failed. You can build on this to p
 Clone this repo and go into the `project` folder to find an example tape test file
 you can use. You'll need to create a `package.json` and install tape.
 
-Your test-runner should be implemented like so:
+Your output formatter should be implemented like so:
 
 ```
-node test.js | node test-runner.js
+node test.js | node output-formatter.js
 ```
 
 or, if you make it executable (follow the instructions in [LESSON1.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/LESSON1.md) to do this):
 
 ```
-node test.js | test-runner
+node test.js | output-formatter
 ```
 
 The only program you need to write is `test-runner.js`, however feel free
@@ -141,7 +139,7 @@ Now we have created our own command-line tool, we have in effect created our
 own node module we can publish to the npm registry that others can
 install and use!
 
-Please first use the instructions in [LESSON1.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/LESSON1.md) to make your script `node test-runner.js` globally executable. 
+Please first use the instructions in [LESSON1.md](https://github.com/bradreeder/Node-Shell-Workshop/blob/master/LESSON1.md) to make your script `node test-runner.js` globally executable.
 
 #### Creating a user
 
