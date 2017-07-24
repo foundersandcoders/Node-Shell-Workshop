@@ -209,7 +209,7 @@ this output and redirect it so that it is written to `public/example.js` instead
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js public/index.html > public/example.js
+node path_to_your_cat.js index.html > example.js
 ```
 
 Can you see `example.js` now has been overwritten to contain the contents of `index.html`?
@@ -268,7 +268,7 @@ this output and redirect it so that it is appended to the contents of `public/ex
 Go into the public folder and try this:
 
 ```
-node path_to_your_cat.js public/index.html >> public/example.js
+node path_to_your_cat.js index.html >> example.js
 ```
 
 Can you see `example.js` now has the contents of `index.html` appended onto the end?
@@ -334,7 +334,7 @@ Once you've done this, adjust your `wc.js` so that you can pipe into it the outp
 command like this:
 
 ```
-node cat.js index.html | node wc.js
+node cat.js public/index.html | node wc.js
 ```
 
 This should output `10` still.
